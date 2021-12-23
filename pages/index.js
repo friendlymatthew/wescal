@@ -157,7 +157,7 @@ export default function Home() {
             </p>
           </span>
           <span>
-            <a href="https://github.com/matthewkim0/wescal" target="_blank">
+            <a href="https://github.com/matthewkim0/wescal" target="_blank" rel="noreferrer">
               <FingerprintIcon style={{ color: "#000000", fontSize: 50 }} />
             </a>
           </span>

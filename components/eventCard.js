@@ -96,9 +96,6 @@ export default function EventCard(props) {
     }
   };
 
-  const handleCal = () => {
-
-  }
 
   useEffect(() => {
     setHGlass(false);

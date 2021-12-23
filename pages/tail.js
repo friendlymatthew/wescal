@@ -1,8 +1,17 @@
+import Head from "next/head";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import styles from "../styles/Home.module.css";
 import axios from "axios";
 import EventComponent from "../components/event";
 import {
+  IconButton,
+  Box,
   Grid,
+  Paper,
+  Typography,
+  makeStyles,
+  Button,
 } from "@material-ui/core";
 import FingerprintIcon from "@material-ui/icons/Fingerprint";
 
@@ -42,9 +51,21 @@ const eventPalette = {
   8: "#514F59",
 };
 
+const useStyles = makeStyles({
+  button: {
+    color: "#000000",
+    "&:hover": {
+      color: "#3c69e7",
+    },
+  },
+});
 
+function Event({ event }) {
+  return <div></div>;
+}
 
 export default function Home() {
+  const classes = useStyles();
 
   const today = new Date();
   let dayIdx = today.getDay();
@@ -60,7 +81,7 @@ export default function Home() {
 
   const getAll = () => {
     axios
-      .get("https://safe-lowlands-86945.herokuapp.com/api/v1/all")
+      .get("http://localhost:5001/api/v1/all")
       .then((response) => {
         setEvents(response.data);
       })
@@ -71,7 +92,7 @@ export default function Home() {
 
   const getUndergrad = () => {
     axios
-      .get("https://safe-lowlands-86945.herokuapp.com/api/v1/all/undergrad")
+      .get("http://localhost:5001/api/v1/all/undergrad")
       .then((response) => {
         setEvents(response.data);
       })
@@ -82,7 +103,7 @@ export default function Home() {
 
   const getGls = () => {
     axios
-      .get("https://safe-lowlands-86945.herokuapp.com/api/v1/all/gls")
+      .get("http://localhost:5001/api/v1/all/gls")
       .then((response) => {
         setEvents(response.data);
       })
@@ -93,7 +114,7 @@ export default function Home() {
 
   const getGraduate = () => {
     axios
-      .get("https://safe-lowlands-86945.herokuapp.com/api/v1/all/grad")
+      .get("http://localhost:5001/api/v1/all/grad")
       .then((response) => {
         setEvents(response.data);
       })
@@ -104,7 +125,7 @@ export default function Home() {
 
   const getDepartment = () => {
     axios
-      .get("https://safe-lowlands-86945.herokuapp.com/api/v1/all/department")
+      .get("http://localhost:5001/api/v1/all/department")
       .then((response) => {
         setEvents(response.data);
       })
@@ -115,7 +136,7 @@ export default function Home() {
 
   const getBreak = () => {
     axios
-      .get("https://safe-lowlands-86945.herokuapp.com/api/v1/all/breaks")
+      .get("http://localhost:5001/api/v1/all/breaks")
       .then((response) => {
         setEvents(response.data);
       })

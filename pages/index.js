@@ -134,7 +134,7 @@ export default function Home() {
   };
 
   useEffect(() => {
-    getAll();
+    getUndergrad();
     getToday();
   }, []);
 

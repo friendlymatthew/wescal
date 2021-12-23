@@ -211,6 +211,7 @@ export default function Home() {
           {events.map((events) => {
             return (
               <EventComponent
+                key={events.eventDesc}
                 start={events.start}
                 end={events.end}
                 eventDesc={events.eventDesc}

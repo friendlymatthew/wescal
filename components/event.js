@@ -1,15 +1,4 @@
 import React, { useState, useEffect } from "react";
-import {
-  IconButton,
-  Paper,
-  Typography,
-  Box,
-  Button,
-  Grid,
-  Chip,
-} from "@material-ui/core";
-import QueryBuilderIcon from "@material-ui/icons/QueryBuilder";
-import ReportProblemIcon from "@material-ui/icons/ReportProblem";
 
 const numToDay = {
   0: "Sunday",
@@ -36,17 +25,6 @@ const toMonth = {
   12: "December",
 };
 
-const eventPalette = {
-  1: "#3c69e7",
-  2: "#B892FF",
-  3: "#6E44FF",
-  4: "#FFC2E2",
-  5: "#0B6E4F",
-  6: "#DBAD6A",
-  7: "#6D72C3",
-  8: "#514F59",
-};
-
 export default function EventCard(props) {
   var start = new Date(Date.parse(props.start));
   let startDay = numToDay[start.getDay()];
@@ -63,8 +41,6 @@ export default function EventCard(props) {
   let endDate = toMonth[endmonth] + " " + endday + ", " + endyear;
 
   let duration = Math.ceil(Math.abs(end - start) / (1000 * 60 * 60 * 24));
-
-  let randColor = Math.floor(Math.random() * (8 - 1) + 1);
 
   const [daysTill, setDaysTill] = useState("");
   const [hglass, setHGlass] = useState(false);

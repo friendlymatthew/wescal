@@ -43,10 +43,8 @@ export default function EventCard(props) {
   let duration = Math.ceil(Math.abs(end - start) / (1000 * 60 * 60 * 24));
 
   const [daysTill, setDaysTill] = useState("");
-  const [hglass, setHGlass] = useState(false);
 
   const handleDays = () => {
-    setHGlass(!hglass);
     let now = new Date();
     var nowmonth = now.getUTCMonth() + 1; //months from 1-12
     var nowday = now.getUTCDate();
@@ -73,42 +71,44 @@ export default function EventCard(props) {
   };
 
   useEffect(() => {
-    setHGlass(false);
+    handleDays();
   }, []);
 
   return (
-    <div
-      onClick={handleDays}
-      className=" border-2 border-gray-200 border-opacity-60 max-w-lg p-6 bg-white rounded-lg mb-10 hover:bg-indigo-700 hover:text-white transition duration-300 ease-in"
-    >
+    <div className="group hover:bg-indigo-700 sm:max-w-sm lg:max-w-lg border-2 border-gray-200 border-opacity-60 p-6 bg-white rounded-lg mb-10  transition duration-300 ease-in">
+      <div className="group-hover:text-white">
+        <div>
+          {props.end === null ? (
+            <p className="text-base font-medium text-indigo-400 mb-1 mb-4">
+              {startDay}, {startDate}
+            </p>
+          ) : (
+            <div>
+              <p className="text-base font-medium text-indigo-400 mb-1">
+                {startDay}, {startDate} - {endDay}, {endDate}
+              </p>
+              <p className="text-base font-medium text-indigo-400 inset-0 z-10">
+                {duration === 1 ? (
+                  <div>Duration: {duration} day</div>
+                ) : (
+                  <div>Duration: {duration} days</div>
+                )}
+              </p>
+            </div>
+          )}
+
+          <h1 className="text-2xl font-semibold mb-3 mt-4">
+            {props.eventDesc}
+          </h1>
+        </div>
+      </div>
+      
       <div>
-        {props.end === null ? (
-          <p className="text-base font-medium text-indigo-400 mb-1 mb-4">
-            {startDay}, {startDate}
-          </p>
-        ) : (
-          <div>
-            <p className="text-base font-medium text-indigo-400 mb-1">
-              {startDay}, {startDate} - {endDay}, {endDate}
-            </p>
-            <p className="text-base font-medium text-indigo-400 inset-0 z-10">
-              {duration === 1 ? (
-                <div>Duration: {duration} day</div>
-              ) : (
-                <div>Duration: {duration} days</div>
-              )}
-            </p>
-          </div>
-        )}
-
-        <h1 className="text-2xl font-semibold mb-3 mt-4">{props.eventDesc}</h1>
-
-        {hglass ? 
-        
-        <h1 className="mt-8 transform hover:scale-125 transition ease-out duration-300">
+          <h1
+            className="mt-3 transform opacity-0 group-hover:opacity-100 group-hover:text-white group-hover:scale-125 transition ease-out duration-300"
+          >
             {daysTill}
-        </h1> :
-        <> </>}
+          </h1>
       </div>
     </div>
   );

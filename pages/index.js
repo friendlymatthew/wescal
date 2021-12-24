@@ -167,14 +167,14 @@ export default function Home() {
       </Grid>
 
       <Grid item xs={12} align="center">
-        <section className="space-x-6 rounded-3xl container border-2 bg-indigo-500 p-2 max-w-2xl">
+        <section className="shadow-xl space-x-6 rounded-3xl container border-2 bg-primary p-2 max-w-2xl">
           <div className="dropdown dropdown-hover">
             <div
               onClick={getAll}
               tabIndex="0"
-              className="m-1 text-black bg-indigo-500 hover:text-white font-bold py-2 px-4 rounded transform hover:scale-125 transition ease-out duration-300"
+              className="m-1 text-white bg-primary hover:text-white font-bold py-2 px-4 rounded transform hover:scale-125 transition ease-out duration-300"
             >
-              Archive
+              All
             </div>
             <ul
               tabIndex="0"
@@ -189,28 +189,28 @@ export default function Home() {
           </div>
 
           <button
-            className="text-black bg-indigo-500 hover:text-white font-bold py-2 px-4 rounded transform hover:scale-125 transition ease-out duration-300"
+            className="text-white bg-primary hover:text-white font-bold py-2 px-4 rounded transform hover:scale-125 transition ease-out duration-300"
             onClick={getUndergrad}
           >
             Undergraduate
           </button>
 
           <button
-            className="text-black bg-indigo-500 hover:text-white font-bold py-2 px-4 rounded transform hover:scale-125 transition ease-out duration-300"
+            className="text-white bg-primary hover:text-white font-bold py-2 px-4 rounded transform hover:scale-125 transition ease-out duration-300"
             onClick={getGraduate}
           >
             Graduate
           </button>
 
           <button
-            className="text-black bg-indigo-500 hover:text-white font-bold py-2 px-4 rounded transform hover:scale-125 transition ease-out duration-300"
+            className="text-white bg-primary hover:text-white font-bold py-2 px-4 rounded transform hover:scale-125 transition ease-out duration-300"
             onClick={getDepartment}
           >
             Faculty
           </button>
 
           <button
-            className="text-black bg-indigo-500 hover:text-white font-bold py-2 px-4 rounded transform hover:scale-125 transition ease-out duration-300"
+            className="text-white bg-primary hover:text-white font-bold py-2 px-4 rounded transform hover:scale-125 transition ease-out duration-300"
             onClick={getBreak}
           >
             Break
@@ -243,62 +243,99 @@ export default function Home() {
       </Grid>
 
       <Grid item xs={12}>
-        <footer className="p-10 footer bg-neutral text-neutral-content">
-          <a
-            href="https://github.com/matthewkim0/wescal"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"
-              />
-            </svg>
-            <p>Written by Matthew Kim</p>
-          </a>
+        <footer className="p-10 footer bg-primary text-primary-content footer-center">
           <div>
-            <span className="footer-title">Social</span>
+            <div className="flex mb-5">
+              <div className="text-white text-lg font-bold mr-4">Made with</div>
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="animate-ping"
+                fill="currentColor"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                />
+              </svg>
+            </div>
+
+            <p className="font-bold">Written by Matthew Kim</p>
+            <p>Copyright © 2021 - All right reserved</p>
+          </div>
+          <div>
             <div className="grid grid-flow-col gap-4">
-              <a>
+              <a
+                href="mailto:mkim04@wesleyan.edu"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
+                  className="text-white transform hover:scale-125 transition ease-out duration-300"
+                  fill="none"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
-                  className="fill-current"
+                  stroke="currentColor"
                 >
-                  <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
+                  />
                 </svg>
               </a>
-              <a>
+              <a
+                href="https://github.com/matthewkim0/wescal"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
+                  className="text-white transform hover:scale-125 transition ease-out duration-300"
+                  fill="none"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
-                  className="fill-current"
+                  stroke="currentColor"
                 >
-                  <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"
+                  />
                 </svg>
               </a>
-              <a>
+              <a
+                href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwiD67L-l_30AhVhUt8KHR1cCcwQyCl6BAgGEAM&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DL_LUpnjgPso&usg=AOvVaw2f8wtP43azuDhcWIwfe-Cc"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
+                  className="text-white transform hover:scale-125 transition ease-out duration-300"
+                  fill="none"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
-                  className="fill-current"
+                  stroke="currentColor"
                 >
-                  <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"
+                  />
+                 
                 </svg>
               </a>
             </div>

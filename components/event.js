@@ -105,7 +105,7 @@ export default function EventCard(props) {
       
       <div>
           <h1
-            className="mt-3 transform opacity-0 group-hover:opacity-100 group-hover:text-white group-hover:scale-125 transition ease-out duration-300"
+            className="mt-10 transform opacity-0 group-hover:opacity-100 group-hover:text-white group-hover:scale-125 transition ease-out duration-300"
           >
             {daysTill}
           </h1>

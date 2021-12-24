@@ -135,7 +135,7 @@ export default function Home() {
         >
           <span>
             <p className="text-indigo-500 text-3xl font-bold mb-0">
-              <div className="mb-1">Welcome to WesCal</div>
+              <div className="mb-10 lg:mb-4">Welcome to WesCalendar</div>
               <div>
                 Today is {numToDay[dayIdx]}, {todayDate}
               </div>

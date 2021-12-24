@@ -172,7 +172,7 @@ export default function Home() {
             <div
               onClick={getAll}
               tabIndex="0"
-              className="m-1 text-white bg-primary hover:text-white font-bold py-2 px-4 rounded transform hover:scale-125 transition ease-out duration-300"
+              className="m-1 text-white bg-primary hover:opacity-90 font-bold py-2 px-4 rounded transform hover:scale-125 transition ease-out duration-300"
             >
               All
             </div>
@@ -189,28 +189,28 @@ export default function Home() {
           </div>
 
           <button
-            className="text-white bg-primary hover:text-white font-bold py-2 px-4 rounded transform hover:scale-125 transition ease-out duration-300"
+            className="text-white bg-primary hover:opacity-90 font-bold py-2 px-4 rounded transform hover:scale-125 transition ease-out duration-300"
             onClick={getUndergrad}
           >
             Undergraduate
           </button>
 
           <button
-            className="text-white bg-primary hover:text-white font-bold py-2 px-4 rounded transform hover:scale-125 transition ease-out duration-300"
+            className="text-white bg-primary hover:opacity-90 font-bold py-2 px-4 rounded transform hover:scale-125 transition ease-out duration-300"
             onClick={getGraduate}
           >
             Graduate
           </button>
 
           <button
-            className="text-white bg-primary hover:text-white font-bold py-2 px-4 rounded transform hover:scale-125 transition ease-out duration-300"
+            className="text-white bg-primary hover:opacity-90 font-bold py-2 px-4 rounded transform hover:scale-125 transition ease-out duration-300"
             onClick={getDepartment}
           >
             Faculty
           </button>
 
           <button
-            className="text-white bg-primary hover:text-white font-bold py-2 px-4 rounded transform hover:scale-125 transition ease-out duration-300"
+            className="text-white bg-primary hover:opacity-90 font-bold py-2 px-4 rounded transform hover:scale-125 transition ease-out duration-300"
             onClick={getBreak}
           >
             Break
@@ -243,7 +243,7 @@ export default function Home() {
       </Grid>
 
       <Grid item xs={12}>
-        <footer className="p-10 footer bg-primary text-primary-content footer-center">
+        <footer className="p-10 footer bg-indigo-500 text-primary-content footer-center">
           <div>
             <div className="flex mb-5">
               <div className="text-white text-lg font-bold mr-4">Made with</div>

@@ -124,18 +124,8 @@ export default function Home() {
     setAudience("When Will I Be Free?");
   };
 
-  const getToday = () => {
-    axios
-      .get("http://history.muffinlabs.com/date")
-      .then((response) => {
-        setTodayFact(response.data.Events);
-      })
-      .catch((error) => console.log(error));
-  };
-
   useEffect(() => {
     getUndergrad();
-    getToday();
   }, []);
 
   return (
@@ -158,7 +148,11 @@ export default function Home() {
           </span>
           <span>
             <a href="https://github.com/matthewkim0/wescal" target="_blank" rel="noreferrer">
-              <FingerprintIcon style={{ color: "#000000", fontSize: 50 }} />
+              <FingerprintIcon 
+                className="hover:scale-125 transition transform ease-out duration-300"
+                style={{ color: "#000000", fontSize: 50 }} 
+              
+              />
             </a>
           </span>
         </section>

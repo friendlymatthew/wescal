@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import EventComponent from "../components/event";
+import CurrEventComponent from "../components/currEvent";
 import { Grid } from "@material-ui/core";
 
 const numToDay = {
@@ -38,11 +39,12 @@ export default function Home() {
   let todayDate = toMonth[endmonth] + " " + endday + ", " + endyear;
 
   const [events, setEvents] = useState([]);
+  const [currEvents, setCurrEvents] = useState([]);
   const [audience, setAudience] = useState("");
 
   const getAll = () => {
     axios
-      .get("https://safe-lowlands-86945.herokuapp.com/api/v1/all")
+      .get("http://localhost:80/api/v1/all")
       .then((response) => {
         setEvents(response.data);
       })
@@ -53,7 +55,14 @@ export default function Home() {
 
   const getUndergrad = () => {
     axios
-      .get("https://safe-lowlands-86945.herokuapp.com/api/v1/all/undergrad")
+      .get("http://localhost:80/api/v1/all/currundergrad")
+      .then((response) => {
+        setCurrEvents(response.data);
+      })
+      .catch((error) => console.log(error));
+
+    axios
+      .get("http://localhost:80/api/v1/all/undergrad")
       .then((response) => {
         setEvents(response.data);
       })
@@ -74,6 +83,14 @@ export default function Home() {
   };
 
   const getGraduate = () => {
+
+    axios
+      .get("https://safe-lowlands-86945.herokuapp.com/api/v1/all/currgrad")
+      .then((response) => {
+        setEvents(response.data);
+      })
+      .catch((error) => console.log(error));
+
     axios
       .get("https://safe-lowlands-86945.herokuapp.com/api/v1/all/grad")
       .then((response) => {
@@ -85,6 +102,13 @@ export default function Home() {
   };
 
   const getDepartment = () => {
+    axios
+      .get("https://safe-lowlands-86945.herokuapp.com/api/v1/all/currdepartment")
+      .then((response) => {
+        setEvents(response.data);
+      })
+      .catch((error) => console.log(error));
+
     axios
       .get("https://safe-lowlands-86945.herokuapp.com/api/v1/all/department")
       .then((response) => {
@@ -100,6 +124,13 @@ export default function Home() {
       .get("https://safe-lowlands-86945.herokuapp.com/api/v1/all/breaks")
       .then((response) => {
         setEvents(response.data);
+      })
+      .catch((error) => console.log(error));
+
+      axios
+      .get("https://safe-lowlands-86945.herokuapp.com/api/v1/all/currbreaks")
+      .then((response) => {
+        setCurrEvents(response.data);
       })
       .catch((error) => console.log(error));
 
@@ -219,6 +250,28 @@ export default function Home() {
         <h1 className="text-indigo-500 font-bold text-5xl mb-5 my-10">
           {audience}
         </h1>
+      </Grid>
+
+      
+      <Grid item xs={12} align="center">
+        <React.Fragment>
+          {currEvents.map((events) => {
+            return (
+              <CurrEventComponent
+                key={events.eventDesc}
+                start={events.start}
+                end={events.end}
+                eventDesc={events.eventDesc}
+                url={events.url}
+                undergrad={events.undergrad}
+                gls={events.gls}
+                grad={events.grad}
+                department={events.department}
+                isBreak={events.isBreak}
+              />
+            );
+          })}
+        </React.Fragment>
       </Grid>
 
       <Grid item xs={12} align="center">

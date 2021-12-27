@@ -50,6 +50,8 @@ export default function Home() {
       })
       .catch((error) => console.log(error));
 
+    setCurrEvents([]);
+
     setAudience("Calendar");
   };
 
@@ -83,7 +85,6 @@ export default function Home() {
   };
 
   const getGraduate = () => {
-
     axios
       .get("https://safe-lowlands-86945.herokuapp.com/api/v1/all/currgrad")
       .then((response) => {
@@ -103,7 +104,9 @@ export default function Home() {
 
   const getDepartment = () => {
     axios
-      .get("https://safe-lowlands-86945.herokuapp.com/api/v1/all/currdepartment")
+      .get(
+        "https://safe-lowlands-86945.herokuapp.com/api/v1/all/currdepartment"
+      )
       .then((response) => {
         setEvents(response.data);
       })
@@ -127,7 +130,7 @@ export default function Home() {
       })
       .catch((error) => console.log(error));
 
-      axios
+    axios
       .get("https://safe-lowlands-86945.herokuapp.com/api/v1/all/currbreaks")
       .then((response) => {
         setCurrEvents(response.data);
@@ -164,6 +167,8 @@ export default function Home() {
             display: "flex",
           }}
         >
+          
+
           <span>
             <p className="text-indigo-500 text-3xl font-bold mb-0">
               <div className="mb-10 lg:mb-4">Welcome to WesCalendar</div>
@@ -252,7 +257,6 @@ export default function Home() {
         </h1>
       </Grid>
 
-      
       <Grid item xs={12} align="center">
         <React.Fragment>
           {currEvents.map((events) => {
@@ -320,7 +324,7 @@ export default function Home() {
             </div>
 
             <p className="font-bold">Written by Matthew Kim</p>
-            <p>Copyright © 2021 - All right reserved</p>
+            <p>Copyright © 2021 - All left reserved</p>
           </div>
           <div>
             <div className="grid grid-flow-col gap-4">
@@ -382,13 +386,12 @@ export default function Home() {
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
-                  
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
                 </svg>
               </a>
             </div>

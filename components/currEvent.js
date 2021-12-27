@@ -33,6 +33,7 @@ export default function EventCard(props) {
   var startyear = start.getUTCFullYear();
   let startDate = toMonth[startmonth] + " " + startday + ", " + startyear;
 
+
   let end = new Date(Date.parse(props.end));
   let endDay = numToDay[end.getDay()];
   var endmonth = end.getUTCMonth() + 1; //months from 1-12
@@ -41,10 +42,11 @@ export default function EventCard(props) {
   let endDate = toMonth[endmonth] + " " + endday + ", " + endyear;
 
   let duration = Math.ceil(Math.abs(end - start) / (1000 * 60 * 60 * 24));
+  let remaining = Math.ceil(Math.abs(end - new Date()) / (1000 * 60 * 60 * 24));
+
 
 
   useEffect(() => {
-    
   }, []);
 
   return (
@@ -80,7 +82,8 @@ export default function EventCard(props) {
           <h1
             className="mt-10 transform group-hover:text-white group-hover:scale-125 transition ease-out duration-300"
           >
-            This is currently happening
+            {remaining == 1 ? <div>  There is {remaining} day remaining </div> : <div> There are {remaining} days remaining </div>}
+            
           </h1>
       </div>
     </div>

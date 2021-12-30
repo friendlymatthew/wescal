@@ -110,9 +110,6 @@ export default function EventCard(props) {
             <div>
               {daysTill}
             </div>
-            <div className=" btn font-small" >
-              Remind Me
-            </div>
           </h1>
       </div>
     </div>

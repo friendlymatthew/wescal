@@ -57,14 +57,14 @@ export default function Home() {
 
   const getUndergrad = () => {
     axios
-      .get("http://localhost:80/api/v1/all/currundergrad")
+      .get("https://safe-lowlands-86945.herokuapp.com/api/v1/all/currundergrad")
       .then((response) => {
         setCurrEvents(response.data);
       })
       .catch((error) => console.log(error));
 
     axios
-      .get("http://localhost:80/api/v1/all/undergrad")
+      .get("https://safe-lowlands-86945.herokuapp.com/api/v1/all/undergrad")
       .then((response) => {
         setEvents(response.data);
       })
@@ -167,8 +167,6 @@ export default function Home() {
             display: "flex",
           }}
         >
-          
-
           <span>
             <p className="text-indigo-500 text-3xl font-bold mb-0">
               <div className="mb-10 lg:mb-4">Welcome to WesCalendar</div>

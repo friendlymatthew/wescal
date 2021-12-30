@@ -4,6 +4,7 @@ import EventComponent from "../components/event";
 import CurrEventComponent from "../components/currEvent";
 import { Grid } from "@material-ui/core";
 import Head from "next/head";
+import ReactGA from "react-ga";
 
 const numToDay = {
   0: "Sunday",
@@ -45,7 +46,7 @@ export default function Home() {
 
   const getAll = () => {
     axios
-      .get("http://localhost:80/api/v1/all")
+      .get("https://safe-lowlands-86945.herokuapp.com/api/v1/all")
       .then((response) => {
         setEvents(response.data);
       })
@@ -72,17 +73,6 @@ export default function Home() {
       .catch((error) => console.log(error));
 
     setAudience("Undergraduate Calendar");
-  };
-
-  const getGls = () => {
-    axios
-      .get("https://safe-lowlands-86945.herokuapp.com/api/v1/all/gls")
-      .then((response) => {
-        setEvents(response.data);
-      })
-      .catch((error) => console.log(error));
-
-    setAudience("GLS Events");
   };
 
   const getGraduate = () => {
@@ -151,11 +141,15 @@ export default function Home() {
       })
       .catch((error) => console.log(error));
 
+    setCurrEvents([]);
+
     setAudience("Spring 2022 Academic Calendar");
   };
 
   useEffect(() => {
     getUndergrad();
+    ReactGA.initialize("UA-216065461-1");
+    ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
 
   return (
@@ -397,17 +391,16 @@ export default function Home() {
                     />
                   </svg>
                 </a>
+
                 <a
-                  href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwiD67L-l_30AhVhUt8KHR1cCcwQyCl6BAgGEAM&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DL_LUpnjgPso&usg=AOvVaw2f8wtP43azuDhcWIwfe-Cc"
+                  href="https://www.youtube.com/watch?v=L_LUpnjgPso"
                   target="_blank"
                   rel="noreferrer"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="text-white transform hover:scale-125 transition ease-out duration-300"
+                    className="h-6 w-6"
                     fill="none"
-                    width="24"
-                    height="24"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                   >
@@ -415,7 +408,13 @@ export default function Home() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth="2"
-                      d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"
+                    />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"
                     />
                   </svg>
                 </a>

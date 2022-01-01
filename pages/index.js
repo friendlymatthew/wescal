@@ -342,7 +342,7 @@ export default function Home() {
                 </svg>
               </div>
 
-              <p className="font-bold">Written by Matthew Kim</p>
+              <p className="font-bold">WesCalendar</p>
               <p>Copyright © 2021 - All left reserved</p>
             </div>
             <div>

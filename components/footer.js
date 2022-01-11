@@ -4,7 +4,7 @@ export default function FooterSection() {
 
     return (
         <div>
-        <footer className="p-10 footer bg-indigo-500 text-primary-content footer-center">
+        <footer className="p-10 footer bg-primary text-primary-content footer-center">
             
             <div>
               <div className="grid grid-flow-col gap-4">
@@ -15,7 +15,7 @@ export default function FooterSection() {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="text-white transform hover:scale-125 transition ease-out duration-300"
+                    className="text-primary-content transform hover:scale-125 transition ease-out duration-300"
                     fill="none"
                     width="24"
                     height="24"
@@ -37,7 +37,7 @@ export default function FooterSection() {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="text-white transform hover:scale-125 transition ease-out duration-300"
+                    className="text-primary-content transform hover:scale-125 transition ease-out duration-300"
                     fill="none"
                     width="24"
                     height="24"
@@ -60,7 +60,7 @@ export default function FooterSection() {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
+                    className="h-6 w-6 text-primary-contenttransform hover:scale-125 transition ease-out duration-300"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"

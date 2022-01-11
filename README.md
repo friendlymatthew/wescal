@@ -1,5 +1,5 @@
 # *Welcome to WesCalendar*
-![release](https://img.shields.io/badge/release-v.0.0.1-blue)
+![release](https://img.shields.io/badge/release-v.1.0.2-blue)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) and hosted on a [MongoDB](https://www.mongodb.com/) server. 
 

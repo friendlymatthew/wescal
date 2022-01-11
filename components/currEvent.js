@@ -50,19 +50,19 @@ export default function EventCard(props) {
   }, []);
 
   return (
-    <div className="group hover:bg-indigo-500 sm:max-w-sm text-white lg:max-w-lg border-2 border-gray-200 border-opacity-60 p-6 bg-indigo-500 rounded-lg mb-10  transition duration-300 ease-in">
+    <div className="group bg-base-200 card sm:max-w-sm text-white lg:max-w-lg p-6 rounded-lg mb-10  transition duration-300 ease-in">
       <div className="group-hover:text-white">
         <div>
           {props.end === null ? (
-            <p className="text-base font-medium opacity-60 mb-1 mb-4">
+            <p className=" text-accent font-medium  mb-1 mb-4">
               {startDay}, {startDate}
             </p>
           ) : (
             <div>
-              <p className="text-base font-medium opacity-60 mb-1">
+              <p className="text-accent font-medium  mb-1">
                 {startDay}, {startDate} - {endDay}, {endDate}
               </p>
-              <p className="text-base font-medium opacity-60 inset-0 z-10">
+              <p className="text-accent font-medium inset-0 z-10">
                 {duration === 1 ? (
                   <div>Duration: {duration} day</div>
                 ) : (

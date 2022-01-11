@@ -1,4 +1,5 @@
 
+import Link from "next/link"
 
 export default function FooterSection() {
 
@@ -53,8 +54,8 @@ export default function FooterSection() {
                   </svg>
                 </a>
 
-                <a
-                  href="https://www.youtube.com/watch?v=L_LUpnjgPso"
+                <Link
+                  href="/fire"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -78,7 +79,7 @@ export default function FooterSection() {
                       d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"
                     />
                   </svg>
-                </a>
+                </Link>
               </div>
             </div>
           </footer>

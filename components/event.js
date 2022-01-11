@@ -75,7 +75,7 @@ export default function EventCard(props) {
   }, []);
 
   return (
-    <div className="group bg-base-200 card hover:bg-opacity-80 sm:max-w-sm lg:max-w-lg p-6 rounded-lg mb-10  transition duration-300 ease-in">
+    <div className="group bg-base-200 card hover:bg-opacity-70 sm:max-w-sm lg:max-w-lg p-6 rounded-lg mb-10  transition duration-300 ease-in">
       <div className="group-hover:text-primary-content">
         <div>
           {props.end === null ? (

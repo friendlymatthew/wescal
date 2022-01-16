@@ -16,39 +16,39 @@ export async function getStaticProps() {
   );
 
   const departmentfetch = await fetch(
-    "https://safe-lowlands-86945.herokuapp.com/api/v1/all/department"
+    "https://wescal.herokuapp.com/api/v1/all/department"
   );
 
   const spring2022fetch = await fetch(
-    "https://safe-lowlands-86945.herokuapp.com/api/v1/archive/spring2022"
+    "https://wescal.herokuapp.com/api/v1/archive/spring2022"
   );
 
   const breaksfetch = await fetch(
-    "https://safe-lowlands-86945.herokuapp.com/api/v1/all/breaks"
+    "https://wescal.herokuapp.com/api/v1/all/breaks"
   );
 
   const currbreaksfetch = await fetch(
-    "https://safe-lowlands-86945.herokuapp.com/api/v1/all/currbreaks"
+    "https://wescal.herokuapp.com/api/v1/all/currbreaks"
   );
 
   const undergradfetch = await fetch(
-    "https://safe-lowlands-86945.herokuapp.com/api/v1/all/undergrad"
+    "https://wescal.herokuapp.com/api/v1/all/undergrad"
   );
 
   const currundergradfetch = await fetch(
-    "https://safe-lowlands-86945.herokuapp.com/api/v1/all/currundergrad"
+    "https://wescal.herokuapp.com/api/v1/all/currundergrad"
   );
 
   const gradfetch = await fetch(
-    "https://safe-lowlands-86945.herokuapp.com/api/v1/all/grad"
+    "https://wescal.herokuapp.com/api/v1/all/grad"
   );
 
   const currgradfetch = await fetch(
-    "https://safe-lowlands-86945.herokuapp.com/api/v1/all/currgrad"
+    "https://wescal.herokuapp.com/api/v1/all/currgrad"
   );
 
   const allfetch = await fetch(
-    "https://safe-lowlands-86945.herokuapp.com/api/v1/all"
+    "https://wescal.herokuapp.com/api/v1/all"
   );
 
   const currdepartment = await currdepartmentfetch.json();

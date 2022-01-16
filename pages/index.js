@@ -6,278 +6,236 @@ import { Grid } from "@material-ui/core";
 import Head from "next/head";
 import ReactGA from "react-ga";
 import Footer from "../components/footer";
-import Header from "../components/header";
+import TopBar from "../components/topBar";
+import NavBar from "../components/NavBar";
+import { motion } from "framer-motion";
 
+export async function getStaticProps() {
+  const currdepartmentfetch = await fetch(
+    "https://safe-lowlands-86945.herokuapp.com/api/v1/all/currdepartment"
+  );
 
+  const departmentfetch = await fetch(
+    "https://safe-lowlands-86945.herokuapp.com/api/v1/all/department"
+  );
 
+  const spring2022fetch = await fetch(
+    "https://safe-lowlands-86945.herokuapp.com/api/v1/archive/spring2022"
+  );
 
-export async function getServerSideProps() {
-  const res = await fetch(
+  const breaksfetch = await fetch(
+    "https://safe-lowlands-86945.herokuapp.com/api/v1/all/breaks"
+  );
+
+  const undergradfetch = await fetch(
     "https://safe-lowlands-86945.herokuapp.com/api/v1/all/undergrad"
   );
 
-  const currres = await fetch(
+  const currundergradfetch = await fetch(
     "https://safe-lowlands-86945.herokuapp.com/api/v1/all/currundergrad"
   );
 
-  const initdata = await res.json();
-  const currdata = await currres.json();
+  const gradfetch = await fetch(
+    "https://safe-lowlands-86945.herokuapp.com/api/v1/all/grad"
+  );
+
+  const currgradfetch = await fetch(
+    "https://safe-lowlands-86945.herokuapp.com/api/v1/all/currgrad"
+  );
+
+  const allfetch = await fetch(
+    "https://safe-lowlands-86945.herokuapp.com/api/v1/all"
+  );
+
+  const currdepartment = await currdepartmentfetch.json();
+  const department = await departmentfetch.json();
+  const spring2022 = await spring2022fetch.json();
+  const breaks = await breaksfetch.json();
+  const undergrad = await undergradfetch.json();
+  const currundergrad = await currundergradfetch.json();
+  const grad = await gradfetch.json();
+  const currgrad = await currgradfetch.json();
+  const all = await allfetch.json();
 
   return {
     props: {
-      initdata,
-      currdata,
+      currdepartment,
+      department,
+      spring2022,
+      breaks,
+      undergrad,
+      currundergrad,
+      grad,
+      currgrad,
+      all,
     },
   };
 }
 
-export default function Home({ initdata, currdata }) {
-  
-
-  const [events, setEvents] = useState(initdata);
-  const [currEvents, setCurrEvents] = useState(currdata);
+export default function Home({
+  currdepartment,
+  department,
+  spring2022,
+  breaks,
+  undergrad,
+  currundergrad,
+  grad,
+  currgrad,
+  all,
+}) {
+  const [events, setEvents] = useState(undergrad);
+  const [currEvents, setCurrEvents] = useState(currundergrad);
   const [audience, setAudience] = useState("");
 
-  const getAll = () => {
-    axios
-      .get("https://safe-lowlands-86945.herokuapp.com/api/v1/all")
-      .then((response) => {
-        setEvents(response.data);
-      })
-      .catch((error) => console.log(error));
-
-    setCurrEvents([]);
-
-    setAudience("Calendar");
+  const handleAll = () => {
+    setEvents(all)
+    setCurrEvents([])
+    setAudience("All Events")
   };
 
-  const getUndergrad = () => {
-    axios
-      .get("https://safe-lowlands-86945.herokuapp.com/api/v1/all/currundergrad")
-      .then((response) => {
-        setCurrEvents(response.data);
-      })
-      .catch((error) => console.log(error));
+  const handleUndergrad = () => {
+    setEvents(undergrad)
+    setCurrEvents(currundergrad)
+    setAudience("Undergraduate Events")
+  }
 
-    axios
-      .get("https://safe-lowlands-86945.herokuapp.com/api/v1/all/undergrad")
-      .then((response) => {
-        setEvents(response.data);
-      })
-      .catch((error) => console.log(error));
+  const handleGrad = () => {
+    setEvents(grad)
+    setCurrEvents(currgrad)
+    setAudience("Graduate Events")
+  }
 
-    setAudience("Undergraduate Calendar");
-  };
+  const handleFaculty = () => {
+    setEvents(department)
+    setCurrEvents(currdepartment)
+    setAudience("Faculty Events")
+  }
 
-  const getGraduate = () => {
-    axios
-      .get("https://safe-lowlands-86945.herokuapp.com/api/v1/all/currgrad")
-      .then((response) => {
-        setEvents(response.data);
-      })
-      .catch((error) => console.log(error));
-
-    axios
-      .get("https://safe-lowlands-86945.herokuapp.com/api/v1/all/grad")
-      .then((response) => {
-        setEvents(response.data);
-      })
-      .catch((error) => console.log(error));
-
-    setAudience("Graduate Calendar");
-  };
-
-  const getDepartment = () => {
-    axios
-      .get(
-        "https://safe-lowlands-86945.herokuapp.com/api/v1/all/currdepartment"
-      )
-      .then((response) => {
-        setEvents(response.data);
-      })
-      .catch((error) => console.log(error));
-
-    axios
-      .get("https://safe-lowlands-86945.herokuapp.com/api/v1/all/department")
-      .then((response) => {
-        setEvents(response.data);
-      })
-      .catch((error) => console.log(error));
-
-    setAudience("Faculty Calendar");
-  };
-
-  const getBreak = () => {
-    axios
-      .get("https://safe-lowlands-86945.herokuapp.com/api/v1/all/breaks")
-      .then((response) => {
-        setEvents(response.data);
-      })
-      .catch((error) => console.log(error));
-
-    axios
-      .get("https://safe-lowlands-86945.herokuapp.com/api/v1/all/currbreaks")
-      .then((response) => {
-        setCurrEvents(response.data);
-      })
-      .catch((error) => console.log(error));
-
-    setAudience("When Will I Be Free?");
-  };
-
-  const getSpring2020 = () => {
-    axios
-      .get(
-        "https://safe-lowlands-86945.herokuapp.com/api/v1/archive/spring2022"
-      )
-      .then((response) => {
-        setEvents(response.data);
-      })
-      .catch((error) => console.log(error));
-
-    setCurrEvents([]);
-
-    setAudience("Spring 2022 Academic Calendar");
-  };
-
+  const handleBreaks = () => {
+    setEvents(breaks)
+    setCurrEvents([])
+    setAudience("When will I be free")
+  }
 
   useEffect(() => {
     ReactGA.initialize("UA-216065461-1");
     ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
 
+
+
   return (
-    <html data-theme="dark">
-      <Head>
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon-16x16.png"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-        <link rel="manifest" href="/site.webmanifest" />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
-        <meta name="theme-color" content="#ffffff" />
-      </Head>
+    <html className="bg-brand">
+      <TopBar />
+      <header className="sticky top-0 z-10">
+        <Head>
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon-16x16.png"
+          />
+          <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+          />
+          <link rel="manifest" href="/site.webmanifest" />
+          <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+          <meta name="theme-color" content="#ffffff" />
+        </Head>
+        <NavBar />
+        <section className="h-12 grid grid-cols-1 transition bg-white ease-in duration-300 place-items-center">
+          <div className="flex flex-wrap space-x-16 text-base-content">
+            <button
+              value="all"
+              onClick={handleAll}
+              className="p-2 text-lg bg-gradient-to-tl from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium text-transparent bg-clip-text bg-gradient-to-br"
+            >
+              All
+            </button>
+            <button
+              onClick={handleUndergrad}
+              className="p-2 text-lg bg-gradient-to-tl from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium text-transparent bg-clip-text bg-gradient-to-br"
+            >
+              Undergraduate
+            </button>
+            <button
+              onClick={handleGrad}
+              className="p-2 text-lg bg-gradient-to-tl from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium text-transparent bg-clip-text bg-gradient-to-br"
+            >
+              Graduate
+            </button>
+            <button
+              onClick={handleFaculty}
+              className="p-2 text-lg bg-gradient-to-tl from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium text-transparent bg-clip-text bg-gradient-to-br"
+            >
+              Faculty
+            </button>
+            <button
+              onClick={handleBreaks}
+              className="p-2 text-lg bg-gradient-to-tl from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium text-transparent bg-clip-text bg-gradient-to-br"
+            >
+              Breaks
+            </button>
+          </div>
+        </section>
+      </header>
 
-      <div className="grid grid-cols-1 place-items-center">
-        
-          <Header />  
+      <main className="relative bg-base-100 grid grid-cols-1 place-items-center ">
+        <div
+          id="title"
+          className="text-4xl pt-12 pb-6 text-black font-extrabold text-transparent bg-clip-text bg-gradient-to-br "
+        >
+          {audience}
+        </div>
 
-        <Grid item xs={1}></Grid>
-        <Grid item xs={10} md={12} container spacing={0}>
-          <Grid item xs={12} align="center">
-            <section className="shadow-xl space-x-6 rounded-3xl container bg-primary p-2 max-w-2xl">
-              <div className=" dropdown dropdown-hover">
-                <div
-                  onClick={getAll}
-                  tabIndex="0"
-                  className="m-1 text-white bg-primary hover:opacity-90 font-bold py-2 px-4 rounded transform hover:scale-125 transition ease-out duration-300"
-                >
-                  All
-                </div>
-                <ul
-                  tabIndex="0"
-                  className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52"
-                >
-                  <li>
-                    <a onClick={getSpring2020} style={{ textAlign: "left" }}>
-                      Spring 2022
-                    </a>
-                  </li>
-                </ul>
-              </div>
+        <React.Fragment>
+          {currEvents.map((events) => {
+            return (
+              <CurrEventComponent
+                key={events.eventDesc}
+                start={events.start}
+                end={events.end}
+                eventDesc={events.eventDesc}
+                url={events.url}
+                undergrad={events.undergrad}
+                gls={events.gls}
+                grad={events.grad}
+                department={events.department}
+                isBreak={events.isBreak}
+              />
+            );
+          })}
+        </React.Fragment>
 
-              <button
-                className="text-white bg-primary hover:opacity-90 font-bold py-2 px-4 rounded transform hover:scale-125 transition ease-out duration-300"
-                onClick={getUndergrad}
-              >
-                Undergraduate
-              </button>
 
-              <button
-                className="text-white bg-primary hover:opacity-90 font-bold py-2 px-4 rounded transform hover:scale-125 transition ease-out duration-300"
-                onClick={getGraduate}
-              >
-                Graduate
-              </button>
+        <React.Fragment>
+          {events.map((events) => {
+            return (
+              <EventComponent
+                key={events.eventDesc}
+                start={events.start}
+                end={events.end}
+                eventDesc={events.eventDesc}
+                url={events.url}
+                undergrad={events.undergrad}
+                gls={events.gls}
+                grad={events.grad}
+                department={events.department}
+                isBreak={events.isBreak}
+              />
+            );
+          })}
+        </React.Fragment>
+      </main>
 
-              <button
-                className="text-white bg-primary hover:opacity-90 font-bold py-2 px-4 rounded transform hover:scale-125 transition ease-out duration-300"
-                onClick={getDepartment}
-              >
-                Faculty
-              </button>
-
-              <button
-                className="text-white bg-primary hover:opacity-90 font-bold py-2 px-4 rounded transform hover:scale-125 transition ease-out duration-300"
-                onClick={getBreak}
-              >
-                Break
-              </button>
-            </section>
-            <h1 className="text-primary-content font-bold text-5xl mb-5 my-10">
-              {audience}
-            </h1>
-          </Grid>
-
-          <Grid item xs={12} align="center">
-            <React.Fragment>
-              {currEvents.map((events) => {
-                return (
-                  <CurrEventComponent
-                    key={events.eventDesc}
-                    start={events.start}
-                    end={events.end}
-                    eventDesc={events.eventDesc}
-                    url={events.url}
-                    undergrad={events.undergrad}
-                    gls={events.gls}
-                    grad={events.grad}
-                    department={events.department}
-                    isBreak={events.isBreak}
-                  />
-                );
-              })}
-            </React.Fragment>
-          </Grid>
-
-          <Grid item xs={12} align="center">
-            <React.Fragment>
-              {events.map((events) => {
-                return (
-                  <EventComponent
-                    key={events.eventDesc}
-                    start={events.start}
-                    end={events.end}
-                    eventDesc={events.eventDesc}
-                    url={events.url}
-                    undergrad={events.undergrad}
-                    gls={events.gls}
-                    grad={events.grad}
-                    department={events.department}
-                    isBreak={events.isBreak}
-                  />
-                );
-              })}
-            </React.Fragment>
-          </Grid>
-        </Grid>
-        <Grid item xs={1}></Grid>
-
-        
-      </div>
       <footer>
         <Footer />
       </footer>

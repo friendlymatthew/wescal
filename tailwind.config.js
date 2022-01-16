@@ -1,5 +1,12 @@
 module.exports = {
-    purge: ['./pages/**/*.{js,ts,jsx,tsx}','./components/**/*.{js,ts,jsx,tsx}'],
+    purge: {
+      content: ['./pages/**/*.{js,ts,jsx,tsx}','./components/**/*.{js,ts,jsx,tsx}'],
+      options: {
+        safelist: [
+          /data-theme$/,
+        ]
+      },
+    },
     theme: {
        extend: {},
     },
@@ -11,7 +18,7 @@ module.exports = {
     ],
     daisyui: {
       styled: true,
-      themes: true,
+      themes: false,
       rtl: false,
     },
   }

@@ -75,15 +75,15 @@ export default function EventCard(props) {
   }, []);
 
   return (
-    <button className="mb-10 sm:w-screen md:w-[32rem] lg:w-[32rem] rounded-lg group bg-base-200 ">
+    <button className="mb-14 sm:w-screen md:w-[32rem] lg:w-[32rem] rounded-lg group bg-base-200 ">
       <div className="grid grid-cols-1 place-items-start py-6 px-4 ">
         {props.end === null ? (
-          <p className="text-black text-opacity-80 font-medium">
+          <p style={{textAlign: "start"}} className="text-black text-opacity-80 font-medium">
             {startDay}, {startDate}
           </p>
         ) : (
           <div>
-            <p className="text-black text-opacity-80 font-medium  grid grid-cols-1 place-items-start mb-1">
+            <p style={{textAlign: "start"}} className="text-black text-opacity-80 font-medium  grid grid-cols-1 place-items-start mb-1">
               {startDay}, {startDate} - {endDay}, {endDate}
             </p>
             <p className="text-black text-opacity-80 font-medium grid grid-cols-1 place-items-start ">

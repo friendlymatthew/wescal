@@ -27,6 +27,10 @@ export async function getStaticProps() {
     "https://safe-lowlands-86945.herokuapp.com/api/v1/all/breaks"
   );
 
+  const currbreaksfetch = await fetch(
+    "https://safe-lowlands-86945.herokuapp.com/api/v1/all/currbreaks"
+  );
+
   const undergradfetch = await fetch(
     "https://safe-lowlands-86945.herokuapp.com/api/v1/all/undergrad"
   );
@@ -51,6 +55,7 @@ export async function getStaticProps() {
   const department = await departmentfetch.json();
   const spring2022 = await spring2022fetch.json();
   const breaks = await breaksfetch.json();
+  const currbreaks = await currbreaksfetch.json();
   const undergrad = await undergradfetch.json();
   const currundergrad = await currundergradfetch.json();
   const grad = await gradfetch.json();
@@ -63,6 +68,7 @@ export async function getStaticProps() {
       department,
       spring2022,
       breaks,
+      currbreaks,
       undergrad,
       currundergrad,
       grad,
@@ -77,6 +83,7 @@ export default function Home({
   department,
   spring2022,
   breaks,
+  currbreaks,
   undergrad,
   currundergrad,
   grad,
@@ -112,13 +119,14 @@ export default function Home({
   }
 
   const handleBreaks = () => {
+    setCurrEvents(currbreaks)
     setEvents(breaks)
-    setCurrEvents([])
     setAudience("When will I be free")
   }
 
   useEffect(() => {
     ReactGA.initialize("UA-216065461-1");
+    setAudience("Undergraduate Events")
     ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
 
@@ -152,7 +160,7 @@ export default function Home({
         </Head>
         <NavBar />
         <section className="h-12 grid grid-cols-1 transition bg-white ease-in duration-300 place-items-center">
-          <div className="flex flex-wrap space-x-16 text-base-content">
+          <div className="flex flex-wrap sm:space-x-8 md:space-x-10 lg:space-x-16 sm:justify-center">
             <button
               value="all"
               onClick={handleAll}
@@ -186,6 +194,9 @@ export default function Home({
             </button>
           </div>
         </section>
+        <div className="h-0.5 bg-gradient-to-r from-orange-400 to-rose-400 grid grid-cols-1 place-items-center">
+     
+    </div>
       </header>
 
       <main className="relative bg-base-100 grid grid-cols-1 place-items-center ">

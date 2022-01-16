@@ -46,7 +46,7 @@ export default function EventCard(props) {
   useEffect(() => {}, []);
 
   return (
-    <button className="mb-10 sm:w-screen md:w-[32rem] lg:w-[32rem] grid grid-cols-1 place-items-start rounded-lg group bg-gradient-to-r hover:bg-gradient-to-br hover:to-orange-400 from-orange-400 hover:from-rose-400 to-rose-400 transition ease-in duration-300 p-4 ">
+    <button className="mb-10 sm:w-screen md:w-[32rem] lg:w-[32rem] grid grid-cols-1 place-items-start rounded-lg group bg-gradient-to-br hover:bg-gradient-to-br hover:to-orange-400 from-orange-400 hover:from-rose-400 to-rose-400 transition ease-in duration-300 p-4 ">
       
       
       {props.end === null ? (

@@ -5,7 +5,7 @@ export default function FooterSection() {
 
     return (
         <div>
-        <footer className="p-10 footer bg-primary text-primary-content footer-center">
+        <footer className="p-10 footer bg-gradient-to-r from-blue-500 to-blue-600 text-primary-content footer-center">
             
             <div>
               <div className="grid grid-flow-col gap-4">

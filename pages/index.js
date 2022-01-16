@@ -154,35 +154,35 @@ export default function Home({
         </Head>
         <NavBar />
         <section className="h-12 grid grid-cols-1 transition bg-white ease-in duration-300 place-items-center">
-          <div className="flex flex-wrap sm:space-x-2 md:space-x-10 lg:space-x-16 sm:justify-center">
+          <div className="flex flex-wrap space-x-1 md:space-x-10 lg:space-x-16 sm:justify-center">
             <button
               value="all"
               onClick={handleAll}
-              className="p-2 sm:text-sm md:text-lg text-gray-700 md:bg-gradient-to-tl md:from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium md:text-transparent bg-clip-text bg-gradient-to-br"
+              className="p-2 text-sm md:text-lg text-gray-700 md:bg-gradient-to-tl md:from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium md:text-transparent bg-clip-text bg-gradient-to-br"
             >
               All
             </button>
             <button
               onClick={handleUndergrad}
-              className="p-2 sm:text-sm md:text-lg text-gray-700 md:bg-gradient-to-tl md:from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium md:text-transparent bg-clip-text bg-gradient-to-br"
+              className="p-2 text-sm md:text-lg text-gray-700 md:bg-gradient-to-tl md:from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium md:text-transparent bg-clip-text bg-gradient-to-br"
             >
               Undergraduate
             </button>
             <button
               onClick={handleGrad}
-              className="p-2 sm:text-sm md:text-lg text-gray-700 md:bg-gradient-to-tl md:from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium md:text-transparent bg-clip-text bg-gradient-to-br"
+              className="p-2 text-sm md:text-lg text-gray-700 md:bg-gradient-to-tl md:from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium md:text-transparent bg-clip-text bg-gradient-to-br"
             >
               Graduate
             </button>
             <button
               onClick={handleFaculty}
-              className="p-2 sm:text-sm md:text-lg text-gray-700 md:bg-gradient-to-tl md:from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium md:text-transparent bg-clip-text bg-gradient-to-br"
+              className="p-2 text-sm md:text-lg text-gray-700 md:bg-gradient-to-tl md:from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium md:text-transparent bg-clip-text bg-gradient-to-br"
             >
               Faculty
             </button>
             <button
               onClick={handleBreaks}
-              className="p-2 sm:text-sm md:text-lg text-gray-700 md:bg-gradient-to-tl md:from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium md:text-transparent bg-clip-text bg-gradient-to-br"
+              className="p-2 text-sm md:text-lg text-gray-700 md:bg-gradient-to-tl md:from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium md:text-transparent bg-clip-text bg-gradient-to-br"
             >
               Breaks
             </button>
@@ -192,7 +192,7 @@ export default function Home({
       </header>
 
       <main className="relative bg-base-100 grid grid-cols-1 place-items-center ">
-        <div id="title" className="text-4xl pt-12 pb-6 text-black font-bold">
+        <div id="title" className="text-4xl pt-12 pb-6 text-black font-bold text-center">
           {audience}
         </div>
 

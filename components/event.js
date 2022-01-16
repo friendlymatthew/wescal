@@ -75,7 +75,7 @@ export default function EventCard(props) {
   }, []);
 
   return (
-    <button className="mb-14 sm:w-screen md:w-[32rem] lg:w-[32rem] rounded-lg group bg-base-200 ">
+    <button className="mb-14 w-[24rem] md:w-[34rem] rounded-lg group bg-base-200 ">
       <div className="grid grid-cols-1 place-items-start py-6 px-4 ">
         {props.end === null ? (
           <p style={{textAlign: "start"}} className="text-black text-opacity-80 font-medium">
@@ -107,7 +107,7 @@ export default function EventCard(props) {
           </h1>
         </div>
       </div>
-      <div className="h-6 bg-gradient-to-r rounded-b-lg hover:bg-gradient-to-br hover:to-orange-400 from-orange-400 hover:from-rose-400 to-rose-400 transition ease-in duration-300">
+      <div className="h-4 bg-gradient-to-r rounded-b-lg hover:bg-gradient-to-br hover:to-orange-400 from-orange-400 hover:from-rose-400 to-rose-400 transition ease-in duration-300">
 
       </div>
     </button>

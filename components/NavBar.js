@@ -33,7 +33,7 @@ export default function NavigationBar() {
   let todayDate = toMonth[endmonth] + " " + endday + ", " + endyear;
 
   return (
-    <nav className="grid grid-rows-1 bg-white backdrop-filter backdrop-blur-lg min-w-md">
+    <nav className="grid grid-rows-2 md:grid-rows-1 bg-white backdrop-filter backdrop-blur-lg min-w-md">
       <div className="flex flex-wrap items-center justify-around h-16">
         <button className="text-4xl  bg-gradient-to-r hover:from-rose-400 from-orange-400 hover:to-orange-400 transition ease-in duration-300 to-rose-400 font-extrabold text-transparent bg-clip-text bg-gradient-to-br ">
           WesCalendar

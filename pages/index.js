@@ -39,17 +39,13 @@ export async function getStaticProps() {
     "https://wescal.herokuapp.com/api/v1/all/currundergrad"
   );
 
-  const gradfetch = await fetch(
-    "https://wescal.herokuapp.com/api/v1/all/grad"
-  );
+  const gradfetch = await fetch("https://wescal.herokuapp.com/api/v1/all/grad");
 
   const currgradfetch = await fetch(
     "https://wescal.herokuapp.com/api/v1/all/currgrad"
   );
 
-  const allfetch = await fetch(
-    "https://wescal.herokuapp.com/api/v1/all"
-  );
+  const allfetch = await fetch("https://wescal.herokuapp.com/api/v1/all");
 
   const currdepartment = await currdepartmentfetch.json();
   const department = await departmentfetch.json();
@@ -95,42 +91,40 @@ export default function Home({
   const [audience, setAudience] = useState("");
 
   const handleAll = () => {
-    setEvents(all)
-    setCurrEvents([])
-    setAudience("All Events")
+    setEvents(all);
+    setCurrEvents([]);
+    setAudience("All Events");
   };
 
   const handleUndergrad = () => {
-    setEvents(undergrad)
-    setCurrEvents(currundergrad)
-    setAudience("Undergraduate Events")
-  }
+    setEvents(undergrad);
+    setCurrEvents(currundergrad);
+    setAudience("Undergraduate Events");
+  };
 
   const handleGrad = () => {
-    setEvents(grad)
-    setCurrEvents(currgrad)
-    setAudience("Graduate Events")
-  }
+    setEvents(grad);
+    setCurrEvents(currgrad);
+    setAudience("Graduate Events");
+  };
 
   const handleFaculty = () => {
-    setEvents(department)
-    setCurrEvents(currdepartment)
-    setAudience("Faculty Events")
-  }
+    setEvents(department);
+    setCurrEvents(currdepartment);
+    setAudience("Faculty Events");
+  };
 
   const handleBreaks = () => {
-    setCurrEvents(currbreaks)
-    setEvents(breaks)
-    setAudience("When will I be free")
-  }
+    setCurrEvents(currbreaks);
+    setEvents(breaks);
+    setAudience("When will I be free");
+  };
 
   useEffect(() => {
     ReactGA.initialize("UA-216065461-1");
-    setAudience("Undergraduate Events")
+    setAudience("Undergraduate Events");
     ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
-
-
 
   return (
     <html className="bg-brand">
@@ -164,46 +158,41 @@ export default function Home({
             <button
               value="all"
               onClick={handleAll}
-              className="p-2 sm:text-sm md:text-lg lg:text-lg bg-gradient-to-tl from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium text-transparent bg-clip-text bg-gradient-to-br"
+              className="p-2 sm:text-sm md:text-lg text-gray-700 md:bg-gradient-to-tl md:from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium md:text-transparent bg-clip-text bg-gradient-to-br"
             >
               All
             </button>
             <button
               onClick={handleUndergrad}
-              className="p-2 sm:text-sm md:text-lg lg:text-lg bg-gradient-to-tl from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium text-transparent bg-clip-text bg-gradient-to-br"
+              className="p-2 sm:text-sm md:text-lg text-gray-700 md:bg-gradient-to-tl md:from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium md:text-transparent bg-clip-text bg-gradient-to-br"
             >
               Undergraduate
             </button>
             <button
               onClick={handleGrad}
-              className="p-2 sm:text-sm md:text-lg lg:text-lg bg-gradient-to-tl from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium text-transparent bg-clip-text bg-gradient-to-br"
+              className="p-2 sm:text-sm md:text-lg text-gray-700 md:bg-gradient-to-tl md:from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium md:text-transparent bg-clip-text bg-gradient-to-br"
             >
               Graduate
             </button>
             <button
               onClick={handleFaculty}
-              className="p-2 sm:text-sm md:text-lg lg:text-lg bg-gradient-to-tl from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium text-transparent bg-clip-text bg-gradient-to-br"
+              className="p-2 sm:text-sm md:text-lg text-gray-700 md:bg-gradient-to-tl md:from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium md:text-transparent bg-clip-text bg-gradient-to-br"
             >
               Faculty
             </button>
             <button
               onClick={handleBreaks}
-              className="p-2 sm:text-sm md:text-lg lg:text-lg bg-gradient-to-tl from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium text-transparent bg-clip-text bg-gradient-to-br"
+              className="p-2 sm:text-sm md:text-lg text-gray-700 md:bg-gradient-to-tl md:from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium md:text-transparent bg-clip-text bg-gradient-to-br"
             >
               Breaks
             </button>
           </div>
         </section>
-        <div className="h-0.5 bg-gradient-to-r from-orange-400 to-rose-400 grid grid-cols-1 place-items-center">
-     
-    </div>
+        <div className="h-0.5 bg-gradient-to-r from-orange-400 to-rose-400 grid grid-cols-1 place-items-center"></div>
       </header>
 
       <main className="relative bg-base-100 grid grid-cols-1 place-items-center ">
-        <div
-          id="title"
-          className="text-4xl pt-12 pb-6 bg-gradient-to-r from-blue-400 to-emerald-400 font-extrabold text-transparent bg-clip-text "
-        >
+        <div id="title" className="text-4xl pt-12 pb-6 text-black font-bold">
           {audience}
         </div>
 
@@ -225,7 +214,6 @@ export default function Home({
             );
           })}
         </React.Fragment>
-
 
         <React.Fragment>
           {events.map((events) => {

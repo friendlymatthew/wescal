@@ -12,7 +12,7 @@ import { motion } from "framer-motion";
 
 export async function getStaticProps() {
   const currdepartmentfetch = await fetch(
-    "https://safe-lowlands-86945.herokuapp.com/api/v1/all/currdepartment"
+    "https://wescal.herokuapp.com/api/v1/all/currdepartment"
   );
 
   const departmentfetch = await fetch(

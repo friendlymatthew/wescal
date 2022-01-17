@@ -76,7 +76,7 @@ export default function EventCard(props) {
 
   return (
     <button className="mb-14 w-[24rem] md:w-[34rem] rounded-lg group bg-base-200 ">
-      <div className="grid grid-cols-1 place-items-start py-6 px-4 ">
+      <div className="grid grid-cols-1 place-items-start py-6 px-8">
         {props.end === null ? (
           <p style={{textAlign: "start"}} className="text-black text-opacity-80 font-medium">
             {startDay}, {startDate}
@@ -96,7 +96,7 @@ export default function EventCard(props) {
           </div>
         )}
 
-        <div style={{ textAlign: "start" }}className="text-3xl font-extrabold text-black my-4 group-hover:scale-105 group-hover:translate-x-2 transition ease-in duration-300">
+        <div style={{ textAlign: "start" }} className="text-3xl font-extrabold text-black my-4 md:group-hover:scale-105 md:group-hover:translate-x-1 transition ease-in duration-300">
           {props.eventDesc}
         </div>
 

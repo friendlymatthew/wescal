@@ -158,81 +158,85 @@ export default function Home({
             <button
               value="all"
               onClick={handleAll}
-              className="p-2 text-sm md:text-lg text-gray-700 md:bg-gradient-to-tl md:from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium md:text-transparent bg-clip-text bg-gradient-to-br"
+              className="p-1 md:p-2 text-sm md:text-lg text-gray-700 md:bg-gradient-to-tl md:from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium md:text-transparent bg-clip-text bg-gradient-to-br"
             >
               All
             </button>
             <button
               onClick={handleUndergrad}
-              className="p-2 text-sm md:text-lg text-gray-700 md:bg-gradient-to-tl md:from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium md:text-transparent bg-clip-text bg-gradient-to-br"
+              className="p-1 md:p-2 text-sm md:text-lg text-gray-700 md:bg-gradient-to-tl md:from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium md:text-transparent bg-clip-text bg-gradient-to-br"
             >
               Undergraduate
             </button>
             <button
               onClick={handleGrad}
-              className="p-2 text-sm md:text-lg text-gray-700 md:bg-gradient-to-tl md:from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium md:text-transparent bg-clip-text bg-gradient-to-br"
+              className="p-1 md:p-2 text-sm md:text-lg text-gray-700 md:bg-gradient-to-tl md:from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium md:text-transparent bg-clip-text bg-gradient-to-br"
             >
               Graduate
             </button>
             <button
               onClick={handleFaculty}
-              className="p-2 text-sm md:text-lg text-gray-700 md:bg-gradient-to-tl md:from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium md:text-transparent bg-clip-text bg-gradient-to-br"
+              className="p-1 md:p-2 text-sm md:text-lg text-gray-700 md:bg-gradient-to-tl md:from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium md:text-transparent bg-clip-text bg-gradient-to-br"
             >
               Faculty
             </button>
             <button
               onClick={handleBreaks}
-              className="p-2 text-sm md:text-lg text-gray-700 md:bg-gradient-to-tl md:from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium md:text-transparent bg-clip-text bg-gradient-to-br"
+              className="p-1 md:p-2 text-sm md:text-lg text-gray-700 md:bg-gradient-to-tl md:from-blue-500 to-blue-600 transition ease-in duration-300 hover:font-semibold hover:scale-105 font-medium md:text-transparent bg-clip-text bg-gradient-to-br"
             >
               Breaks
             </button>
           </div>
         </section>
-        <div className="h-0.5 bg-gradient-to-r from-orange-400 to-rose-400 grid grid-cols-1 place-items-center"></div>
       </header>
 
-      <main className="relative bg-base-100 grid grid-cols-1 place-items-center ">
-        <div id="title" className="text-4xl pt-12 pb-6 text-black font-bold text-center">
+      <main className="relative bg-base-100 grid grid-cols-1 place-items-center px-2 ">
+        <div
+          id="title"
+          className="text-4xl pt-12 pb-6 text-black font-bold text-center"
+        >
           {audience}
         </div>
 
-        <React.Fragment>
-          {currEvents.map((events) => {
-            return (
-              <CurrEventComponent
-                key={events.eventDesc}
-                start={events.start}
-                end={events.end}
-                eventDesc={events.eventDesc}
-                url={events.url}
-                undergrad={events.undergrad}
-                gls={events.gls}
-                grad={events.grad}
-                department={events.department}
-                isBreak={events.isBreak}
-              />
-            );
-          })}
-        </React.Fragment>
+        <div className="grid grid-cols-1 place-items-center">
+          <React.Fragment>
+            {currEvents.map((events) => {
+              return (
+                <CurrEventComponent
+                  key={events.eventDesc}
+                  start={events.start}
+                  end={events.end}
+                  eventDesc={events.eventDesc}
+                  url={events.url}
+                  undergrad={events.undergrad}
+                  gls={events.gls}
+                  grad={events.grad}
+                  department={events.department}
+                  isBreak={events.isBreak}
+                />
+              );
+            })}
+          </React.Fragment>
 
-        <React.Fragment>
-          {events.map((events) => {
-            return (
-              <EventComponent
-                key={events.eventDesc}
-                start={events.start}
-                end={events.end}
-                eventDesc={events.eventDesc}
-                url={events.url}
-                undergrad={events.undergrad}
-                gls={events.gls}
-                grad={events.grad}
-                department={events.department}
-                isBreak={events.isBreak}
-              />
-            );
-          })}
-        </React.Fragment>
+          <React.Fragment>
+            {events.map((events) => {
+              return (
+                <EventComponent
+                  key={events.eventDesc}
+                  start={events.start}
+                  end={events.end}
+                  eventDesc={events.eventDesc}
+                  url={events.url}
+                  undergrad={events.undergrad}
+                  gls={events.gls}
+                  grad={events.grad}
+                  department={events.department}
+                  isBreak={events.isBreak}
+                />
+              );
+            })}
+          </React.Fragment>
+        </div>
       </main>
 
       <footer>

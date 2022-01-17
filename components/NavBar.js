@@ -33,14 +33,12 @@ export default function NavigationBar() {
   let todayDate = toMonth[endmonth] + " " + endday + ", " + endyear;
 
   return (
-    <nav className="grid grid-rows-1 bg-white backdrop-filter backdrop-blur-lg min-w-md">
-      <div className="flex flex-wrap items-center justify-around h-16">
-        <button className="text-4xl  bg-gradient-to-r hover:from-rose-400 from-orange-400 hover:to-orange-400 transition ease-in duration-300 to-rose-400 font-extrabold text-transparent bg-clip-text bg-gradient-to-br ">
-          WesCalendar
-        </button>
-        <div className="text-base-content text-xl font-semibold">
-          {numToDay[dayIdx]}, {todayDate}
-        </div>
+    <nav className="h-auto  md:h-16 grid grid-cols-2 md:grid-cols-2 bg-white backdrop-filter items-center backdrop-blur-lg">
+      <button className="text-md md:text-4xl bg-gradient-to-r hover:from-rose-400 from-orange-400 hover:to-orange-400 transition ease-in duration-300 to-rose-400 font-extrabold text-transparent bg-clip-text bg-gradient-to-br ">
+        WesCalendar
+      </button>
+      <div className="text-base-content text-sm md:text-xl ml-0 md:ml-20 font-semibold">
+        {numToDay[dayIdx]}, {todayDate}
       </div>
     </nav>
   );

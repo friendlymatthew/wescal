@@ -46,44 +46,50 @@ export default function EventCard(props) {
   useEffect(() => {}, []);
 
   return (
-    <button className="mb-14 w-[24rem] md:w-[34rem] grid grid-cols-1 place-items-start rounded-lg group bg-gradient-to-br hover:bg-gradient-to-br hover:to-orange-400 from-orange-400 hover:from-rose-400 to-rose-400 transition ease-in duration-300 p-4 ">
-      
-      
-      {props.end === null ? (
-        <p style={{textAlign: "start"}} className="text-black text-opacity-80 font-medium  mb-1 mb-4">
-          {startDay}, {startDate}
-        </p>
-      ) : (
-        <div >
-          <p style={{textAlign: "start"}} className="text-black text-opacity-80 font-medium  mb-1">
-            {startDay}, {startDate} - {endDay}, {endDate}
+    <button className="mb-14 w-[24rem] md:w-[34rem] rounded-lg group bg-base-200  ">
+      <div className=" px-8 py-6 grid grid-cols-1 place-items-start">
+        {props.end === null ? (
+          <p
+            style={{ textAlign: "start" }}
+            className="text-black text-opacity-80 font-medium  mb-1 mb-4"
+          >
+            {startDay}, {startDate}
           </p>
-          <p className="text-black text-opacity-80 font-medium grid grid-cols-1 place-items-start ">
-            {duration === 1 ? (
-              <div className="">Duration: {duration} day</div>
-            ) : (
-              <div className="">Duration: {duration} days</div>
-            )}
-          </p>
-        </div>
-      )}
+        ) : (
+          <div>
+            <p
+              style={{ textAlign: "start" }}
+              className="text-black text-opacity-80 font-medium  mb-1"
+            >
+              {startDay}, {startDate} - {endDay}, {endDate}
+            </p>
+            <p className="text-black text-opacity-80 font-medium grid grid-cols-1 place-items-start ">
+              {duration === 1 ? (
+                <div className="">Duration: {duration} day</div>
+              ) : (
+                <div className="">Duration: {duration} days</div>
+              )}
+            </p>
+          </div>
+        )}
 
-      <h1 className="text-3xl font-extrabold text-black mt-6 group-hover:scale-125 group-hover:translate-x-6 transition ease-in duration-300">
-        {props.eventDesc}
-      </h1>
-      <div className="text-lg text-black text-opacity-0 group-hover:text-opacity-80 transition duration-300 ease-in-out my-2 group-hover:my-6">
-        This event is currently happening
+        <div className="text-3xl font-extrabold text-base-content my-4 md:group-hover:scale-105 md:group-hover:translate-x-1 grid grid-cols-1 place-items-start transition ease-in duration-300">
+          {props.eventDesc}
+        </div>
+        <div className="text-lg bg-opacity-40 bg-gradient-to-r from-rose-500 to-orange-500 transition ease-in duration-300  font-extrabold text-transparent bg-clip-text font-medium text-opacity-100 grid grid-cols-1 place-items-start md:group-hover:text-opacity-80 transition duration-300 ease-in-out">
+          This event is currently happening
+        </div>
+
+        <h1 className="text-black text-opacity-80 font-medium mb-4 grid grid-cols-1 place-items-start">
+          {remaining == 1 ? (
+            <div> There is {remaining} day remaining </div>
+          ) : (
+            <div> There are {remaining} days remaining </div>
+          )}
+        </h1>
       </div>
 
-      <h1 className="text-black text-opacity-80 font-medium mb-4">
-        {remaining == 1 ? (
-          <div> There is {remaining} day remaining </div>
-        ) : (
-          <div> There are {remaining} days remaining </div>
-        )}
-      </h1>
-      
-      
+      <div className="h-4 bg-gradient-to-r rounded-b-lg hover:bg-gradient-to-br hover:to-orange-400 from-orange-400 hover:from-rose-400 to-rose-400 transition ease-in duration-300"></div>
     </button>
   );
 }

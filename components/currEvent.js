@@ -76,11 +76,11 @@ export default function EventCard(props) {
         <div className="text-3xl font-extrabold text-base-content my-4 md:group-hover:scale-105 md:group-hover:translate-x-1 grid grid-cols-1 place-items-start transition ease-in duration-300">
           {props.eventDesc}
         </div>
-        <div className="text-lg bg-opacity-40 bg-gradient-to-r from-rose-500 to-orange-500 transition ease-in duration-300  font-extrabold text-transparent bg-clip-text font-medium text-opacity-100 grid grid-cols-1 place-items-start md:group-hover:text-opacity-80 transition duration-300 ease-in-out">
+        <div className="text-lg font-medium text-orange-500 md:bg-gradient-to-r md:from-rose-500 md:to-orange-500 md:transition md:ease-in md:duration-300 md:font-extrabold md:text-transparent md:bg-clip-text grid grid-cols-1 place-items-start ">
           This event is currently happening
         </div>
 
-        <h1 className="text-black text-opacity-80 font-medium mb-4 grid grid-cols-1 place-items-start">
+        <h1 className="text-rose-500 md:text-black md:text-opacity-80 font-medium mb-4 grid grid-cols-1 place-items-start md:transition md:ease-in md:duration-300">
           {remaining == 1 ? (
             <div> There is {remaining} day remaining </div>
           ) : (

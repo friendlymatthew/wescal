@@ -34,7 +34,7 @@ export default function NavigationBar() {
 
   return (
     <nav className="h-auto  md:h-16 grid grid-cols-2 md:grid-cols-2 bg-white backdrop-filter items-center backdrop-blur-lg">
-      <button className="text-md md:text-4xl bg-gradient-to-r hover:from-rose-400 from-orange-400 hover:to-orange-400 transition ease-in duration-300 to-rose-400 font-extrabold text-transparent bg-clip-text bg-gradient-to-br ">
+      <button className="text-md font-semibold md:text-4xl md:bg-gradient-to-r md:hover:from-rose-400 md:to-rose-400 md:from-orange-400 md:hover:to-orange-400 md:transition md:ease-in md:duration-300 md:font-extrabold md:text-transparent md:bg-clip-text ">
         WesCalendar
       </button>
       <div className="text-base-content text-sm md:text-xl ml-0 md:ml-20 font-semibold">

@@ -11,6 +11,7 @@ import NavBar from "../components/NavBar";
 import { motion } from "framer-motion";
 
 export async function getStaticProps() {
+
   const currdepartmentfetch = await fetch(
     "https://wescal.herokuapp.com/api/v1/all/currdepartment"
   );
@@ -121,6 +122,7 @@ export default function Home({
   };
 
   useEffect(() => {
+    console.log(currundergrad)
     ReactGA.initialize("UA-216065461-1");
     setAudience("Undergraduate Events");
     ReactGA.pageview(window.location.pathname + window.location.search);

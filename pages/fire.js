@@ -6,7 +6,7 @@ export default function FirePage() {
     <div className="grid grid-cols-1 place-items-center p-4">
       <ReactPlayer url="https://www.youtube.com/watch?v=L_LUpnjgPso" playing />
       <Link href="/">
-        <button className="text-accent font-semibold text-2xl p-4 hover:text-accent-focus">
+        <button id="back" className="text-accent font-semibold text-2xl p-4 hover:text-accent-focus">
           Go Back
         </button>
       </Link>

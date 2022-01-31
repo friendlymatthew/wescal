@@ -10,7 +10,7 @@ import TopBar from "../components/topBar";
 import NavBar from "../components/NavBar";
 import { motion } from "framer-motion";
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
 
   const currdepartmentfetch = await fetch(
     "https://wescal.herokuapp.com/api/v1/all/currdepartment"
